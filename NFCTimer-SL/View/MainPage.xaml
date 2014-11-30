@@ -1,4 +1,4 @@
-﻿<phone:NFCPhoneApplicationPage
+﻿<phone:NFCAndVoiceCommandPhoneApplicationPage
     xmlns:phone="clr-namespace:NFCTimer_SL.View"
     x:Class="NFCTimer_SL.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -70,4 +70,4 @@
 
     </Grid>
 
-</phone:NFCPhoneApplicationPage>
+</phone:NFCAndVoiceCommandPhoneApplicationPage>

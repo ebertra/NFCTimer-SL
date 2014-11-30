@@ -10,18 +10,31 @@ using Windows.Networking.Proximity;
 using System.Windows;
 using System.Runtime.InteropServices.WindowsRuntime;
 
+using Windows.Foundation;
+using Windows.Phone.Speech.Recognition;
+using Windows.Phone.Speech.VoiceCommands;
+using Windows.Phone.Speech.Synthesis;
+
+using NFCTimer_SL.Resources;
+
+//using Microsoft.Phone.Tasks;
+using System.Diagnostics;
+
+
 namespace NFCTimer_SL.View
 {
-    public class NFCPhoneApplicationPage : PhoneApplicationPage
+    public class NFCAndVoiceCommandPhoneApplicationPage : PhoneApplicationPage
     {
+
         ProximityDevice NFCDevice { get; set; }
 
-        public void NFCInitialize()
+        public void InitializeNFCAndVoiceCommand()
         {
             Loaded += initPageToListenToNFCDevices;
+           // await VoiceCommandService.InstallCommandSetsFromFileAsync(new Uri("ms-appx:///VoiceCommandDefinition_8.1.xml"));//TODO: this await is bad...Should at least give user feedback...
         }
 
-        #region Initialisation
+        #region InitNFC
         void initPageToListenToNFCDevices(object sender, RoutedEventArgs e)
         {
             if (NFCDevice == null)
@@ -46,7 +59,7 @@ namespace NFCTimer_SL.View
 
         #endregion
 
-        #region NFC EVENT HANDLER
+        #region NFC event handler
         //URI message received
         private void WindowsUriHandler(ProximityDevice sender, ProximityMessage message)
         {
@@ -76,6 +89,5 @@ namespace NFCTimer_SL.View
             }
         }
         #endregion
-
     }
 }

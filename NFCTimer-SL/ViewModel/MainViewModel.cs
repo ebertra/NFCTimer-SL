@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using NFCTimer_SL.Model;
 using System;
 using System.ComponentModel;
@@ -56,6 +57,33 @@ namespace NFCTimer_SL.ViewModel
                 this.ResetTimerCommand = new RelayCommand(this.resetTimer);
                 //Subscribing to my models' notifications
                 stopWatch.PropertyChanged += onStopWatchModelPropertyChanged;
+                //Subscribing to navigation messages
+                Messenger.Default.Register<NavigationMessage>(this, ProcessNavigationMessage);
+            }
+        }
+
+        private void ProcessNavigationMessage(NavigationMessage message)
+        {
+            if (!message.IsStartedByNfcRequest && !message.IsStartedByVoiceCommand) return;
+            if (message.IsStartedByVoiceCommand)
+            {
+                switch (message.VoiceCommand)
+                {
+                    case "TimerStart": this.startStopTimer(); break;
+                    case "TimerStop": this.startStopTimer(); break;
+                    case "TimerReset": this.resetTimer(); break;
+                }
+            }
+            else if (message.IsStartedByNfcRequest)
+            {
+                if (message.NfcLaunchArgs.Contains("action=startstop"))
+                {
+                    this.startStopTimer();
+                }
+                else if (message.NfcLaunchArgs.Contains("action=reset"))
+                {
+                    this.resetTimer();
+                }
             }
         }
 

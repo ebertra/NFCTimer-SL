@@ -9,7 +9,7 @@ using System.Windows.Threading;
 
 namespace NFCTimer_SL.Model
 {
-    public class StopWatch : ViewModelBase //TODO: Should not it be a ModelBase??? Never mind the notificaiton protocol still works
+    public class StopWatch : ViewModelBase //TODO: Should not it be a ModelBase??? Never mind the notificaiton protocol still works -> Should still build my own Model Base though
     {
 
         //ISSUE WITH THIS CODE
