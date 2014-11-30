@@ -6,16 +6,16 @@
     <Example>start the timer</Example>
 
     <Command Name="TimerStart">
-      <Example> start </Example>
-      <ListenFor> Start </ListenFor>
+      <Example>start</Example>
+      <ListenFor>Start</ListenFor>
       <ListenFor> Start [the] timer </ListenFor>
       <Feedback> Starting the timer... </Feedback>
       <Navigate Target="View/MainPage.xaml"/>
     </Command>
 
     <Command Name="TimerStop">
-      <Example> stop </Example>
-      <ListenFor> Stop </ListenFor>
+      <Example>stop</Example>
+      <ListenFor>Stop</ListenFor>
       <ListenFor> Stop [the] timer </ListenFor>
       <Feedback> Stoping the timer... </Feedback>
       <Navigate Target="View/MainPage.xaml"/>
@@ -29,13 +29,13 @@
       <Navigate Target="View/MainPage.xaml"/>
     </Command>
 
-    <Command Name="GiveMeTheTime">
+    <!--<Command Name="GiveMeTheTime">
       <Example> give me the time </Example>
       <ListenFor> Give [me] [the] time </ListenFor>
       <ListenFor>{natural language}</ListenFor>
       <Feedback> Looking at the clock... </Feedback>
       <Navigate Target="View/MainPage.xaml"/>
-    </Command>
+    </Command>-->
  
   </CommandSet>
 </VoiceCommands>

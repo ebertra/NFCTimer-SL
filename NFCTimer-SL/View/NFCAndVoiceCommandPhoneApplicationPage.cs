@@ -31,8 +31,16 @@ namespace NFCTimer_SL.View
         public void InitializeNFCAndVoiceCommand()
         {
             Loaded += initPageToListenToNFCDevices;
-           // await VoiceCommandService.InstallCommandSetsFromFileAsync(new Uri("ms-appx:///VoiceCommandDefinition_8.1.xml"));//TODO: this await is bad...Should at least give user feedback...
+            initializeVoiceCommand();
         }
+
+        #region InitVoiceCommand
+        private async void initializeVoiceCommand()
+        {
+            //TODO: support more languages: http://www.drdobbs.com/mobile/windows-phone-8-app-development-using-vo/240158739?pgno=3
+            await VoiceCommandService.InstallCommandSetsFromFileAsync(new Uri("ms-appx:///VoiceCommandDefinition_8.1.xml"));//TODO: this await is bad...Should at least give user feedback...
+        }
+        #endregion
 
         #region InitNFC
         void initPageToListenToNFCDevices(object sender, RoutedEventArgs e)
