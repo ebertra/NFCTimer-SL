@@ -50,6 +50,7 @@ namespace NFCTimer_SL.View
                 NFCDevice = ProximityDevice.GetDefault();
                 NFCDevice.DeviceArrived += device_DeviceArrived;
                 NFCDevice.DeviceDeparted += device_DeviceDeparted;
+                //Not used for now...
                 NFCDevice.SubscribeForMessage("WindowsUri", WindowsUriHandler);
             }
         }
@@ -69,6 +70,7 @@ namespace NFCTimer_SL.View
 
         #region NFC event handler
         //URI message received
+        //Not used for now....
         private void WindowsUriHandler(ProximityDevice sender, ProximityMessage message)
         {
             try
